@@ -4,6 +4,7 @@ import { Link, Tabs } from "expo-router";
 import { Pressable, useColorScheme } from "react-native";
 
 import Colors from "../../constants/Colors";
+import { View } from "../../components/Themed";
 
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
@@ -50,12 +51,17 @@ export default function TabLayout() {
         options={{
           title: "Start Workout",
           tabBarIcon: ({ color }) => (
-            <MaterialIcon
-              size={28}
-              style={{ marginBottom: -3 }}
-              name="run"
-              color={color}
-            />
+            <View
+              id="run-container"
+              style={{ backgroundColor: color, borderRadius: 9999, padding: 2 }}
+            >
+              <MaterialIcon
+                size={24}
+                style={{ marginBottom: -3 }}
+                name="run"
+                color={"white"}
+              />
+            </View>
           ),
         }}
       />
