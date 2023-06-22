@@ -7,8 +7,13 @@ import {
 import { useFonts } from "expo-font";
 import { Slot, SplashScreen, Stack } from "expo-router";
 import { useEffect } from "react";
-import { useColorScheme } from "react-native";
 import { AuthProvider } from "../context/auth";
+import { useColorScheme } from "nativewind";
+import { NativeWindStyleSheet } from "nativewind";
+
+NativeWindStyleSheet.setOutput({
+  default: "native",
+});
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -17,7 +22,7 @@ export {
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: "(tabs)",
+  initialRouteName: "(tabs)/home",
 };
 
 export default function RootLayout() {
@@ -41,12 +46,12 @@ export default function RootLayout() {
 }
 
 function Root() {
-  const colorScheme = useColorScheme();
+  const { colorScheme } = useColorScheme();
 
   return (
     <AuthProvider>
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        <Slot/>
+        <Slot />
       </ThemeProvider>
     </AuthProvider>
   );

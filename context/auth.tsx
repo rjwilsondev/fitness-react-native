@@ -40,7 +40,7 @@ const useProtectedRoute = (user: UserOrNull) => {
       router.replace("/sign-in");
     } else if (user && inAuthGroup) {
       // Redirect away from the sign-in page.
-      router.replace("(tabs)/");
+      router.replace("(tabs)/home");
     }
   }, [user, segments]);
 };
